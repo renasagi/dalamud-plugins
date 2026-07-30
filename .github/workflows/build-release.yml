@@ -75,13 +75,13 @@ jobs:
 
       - name: Restore
         shell: pwsh
-        run: dotnet restore "source/${{ steps.plugin.outputs.solution }}" --locked-mode
+        run: dotnet restore "source/${{ steps.plugin.outputs.solution }}" --locked-mode --verbosity quiet
 
       - name: Build without provenance metadata
         shell: pwsh
         run: |
           $sourceRoot = (Resolve-Path source).Path
-          dotnet build "source/${{ steps.plugin.outputs.solution }}" --configuration Release --no-restore `
+          dotnet build "source/${{ steps.plugin.outputs.solution }}" --configuration Release --no-restore --verbosity quiet `
             -p:DebugType=none `
             -p:DebugSymbols=false `
             -p:EmbedUntrackedSources=false `
@@ -124,10 +124,11 @@ jobs:
         run: |
           $tag = '${{ inputs.tag }}'
           $asset = 'out/${{ steps.plugin.outputs.asset }}'
+          $version = $tag -replace '^.+-v', ''
           if (gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null) {
             gh release upload $tag $asset --clobber --repo $env:GITHUB_REPOSITORY
           } else {
             gh release create $tag $asset --repo $env:GITHUB_REPOSITORY `
-              --title "${{ steps.plugin.outputs.title }} $tag" `
-              --notes "Sanitized release build."
+              --title "${{ steps.plugin.outputs.title }} $version" `
+              --notes ""
           }
