@@ -1,0 +1,45 @@
+[
+  {
+    "Author": "renasagi",
+    "Name": "CritLuck",
+    "Punchline": "Party Critical Hit, Direct Hit, Critical Direct Hit, and overall percentiles.",
+    "Description": "Shows party hit counts, actual and expected rates, and individual and overall 1–100 percentiles. Use /critluck to open the window.",
+    "InternalName": "CritLuck",
+    "AssemblyVersion": "1.0.0.0",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "RepoUrl": "https://github.com/renasagi/dalamud-plugins",
+    "Tags": [
+      "utility"
+    ],
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
+    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
+    "LastUpdate": 1785379243,
+    "Changelog": "Initial 1.0 release."
+  },
+  {
+    "Author": "renasagi",
+    "Name": "Party Initials",
+    "Punchline": "Change party-list and chat name formats with /pli.",
+    "Description": "Changes the party-list and chat name formats together. Use /pli for initials, /pli full for full names, or /pli help for every option.",
+    "InternalName": "PartyInitials",
+    "AssemblyVersion": "1.1.0.0",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "RepoUrl": "https://github.com/renasagi/dalamud-plugins",
+    "Tags": [
+      "utility",
+      "party",
+      "chat",
+      "commands"
+    ],
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.0/PartyInitials.zip",
+    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.0/PartyInitials.zip",
+    "LastUpdate": 1785379243,
+    "Changelog": "Adds party-list and chat name formatting commands."
+  }
+]

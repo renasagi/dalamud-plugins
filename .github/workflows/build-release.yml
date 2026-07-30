@@ -1,0 +1,132 @@
+name: Build plugin release
+
+on:
+  workflow_dispatch:
+    inputs:
+      plugin:
+        description: Plugin to build
+        required: true
+        type: choice
+        options:
+          - CritLuck
+          - PartyInitials
+      tag:
+        description: Release tag
+        required: true
+        type: string
+      publish:
+        description: Publish or replace the GitHub release asset
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout feed
+        uses: actions/checkout@v5
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Select plugin
+        id: plugin
+        shell: pwsh
+        run: |
+          if ('${{ inputs.plugin }}' -eq 'CritLuck') {
+            'solution=CritLuck.sln' >> $env:GITHUB_OUTPUT
+            'tests=tests/CritLuck.MathChecks' >> $env:GITHUB_OUTPUT
+            'package=CritLuck/bin/x64/Release/CritLuck/latest.zip' >> $env:GITHUB_OUTPUT
+            'asset=CritLuck.zip' >> $env:GITHUB_OUTPUT
+            'title=CritLuck' >> $env:GITHUB_OUTPUT
+          } else {
+            'solution=PartyInitials.sln' >> $env:GITHUB_OUTPUT
+            'tests=tests/PartyInitials.Checks' >> $env:GITHUB_OUTPUT
+            'package=PartyInitials/bin/x64/Release/PartyInitials/latest.zip' >> $env:GITHUB_OUTPUT
+            'asset=PartyInitials.zip' >> $env:GITHUB_OUTPUT
+            'title=Party Initials' >> $env:GITHUB_OUTPUT
+          }
+
+      - name: Clone private source
+        shell: bash
+        env:
+          SOURCE_URL: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_URL || secrets.PARTYINITIALS_SOURCE_URL }}
+          SOURCE_KEY: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_KEY || secrets.PARTYINITIALS_SOURCE_KEY }}
+        run: |
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$SOURCE_KEY" > "$HOME/.ssh/id_ed25519"
+          chmod 600 "$HOME/.ssh/id_ed25519"
+          ssh-keyscan -t ed25519 github.com > "$HOME/.ssh/known_hosts"
+          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes" git clone --depth 1 "$SOURCE_URL" source
+
+      - name: Download Dalamud
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
+          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev"
+
+      - name: Restore
+        shell: pwsh
+        run: dotnet restore "source/${{ steps.plugin.outputs.solution }}" --locked-mode
+
+      - name: Build without provenance metadata
+        shell: pwsh
+        run: |
+          $sourceRoot = (Resolve-Path source).Path
+          dotnet build "source/${{ steps.plugin.outputs.solution }}" --configuration Release --no-restore `
+            -p:DebugType=none `
+            -p:DebugSymbols=false `
+            -p:EmbedUntrackedSources=false `
+            -p:EmbedAllSources=false `
+            -p:PublishRepositoryUrl=false `
+            -p:GenerateRepositoryUrlAttribute=false `
+            -p:IncludeSourceRevisionInInformationalVersion=false `
+            -p:EnableSourceControlManagerQueries=false `
+            -p:Deterministic=true `
+            "-p:PathMap=$sourceRoot=/_/"
+
+      - name: Test
+        shell: pwsh
+        run: dotnet run --project "source/${{ steps.plugin.outputs.tests }}" --configuration Release --no-build
+
+      - name: Sanitize and audit package
+        shell: pwsh
+        env:
+          SANITIZER_FORBIDDEN_TERMS: ${{ secrets.FORBIDDEN_IDENTIFIERS }}
+        run: |
+          New-Item -ItemType Directory -Force out | Out-Null
+          dotnet run --project tools/ReleaseSanitizer --configuration Release -- `
+            "source/${{ steps.plugin.outputs.package }}" `
+            "out/${{ steps.plugin.outputs.asset }}" `
+            "https://github.com/${{ github.repository }}"
+
+      - name: Upload sanitized build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.plugin }}-${{ inputs.tag }}
+          path: out/${{ steps.plugin.outputs.asset }}
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Publish release
+        if: ${{ inputs.publish }}
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = '${{ inputs.tag }}'
+          $asset = 'out/${{ steps.plugin.outputs.asset }}'
+          if (gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null) {
+            gh release upload $tag $asset --clobber --repo $env:GITHUB_REPOSITORY
+          } else {
+            gh release create $tag $asset --repo $env:GITHUB_REPOSITORY `
+              --title "${{ steps.plugin.outputs.title }} $tag" `
+              --notes "Sanitized release build."
+          }
