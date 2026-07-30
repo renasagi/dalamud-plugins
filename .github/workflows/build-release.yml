@@ -60,8 +60,9 @@ jobs:
           SOURCE_URL: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_URL || secrets.PARTYINITIALS_SOURCE_URL }}
           SOURCE_KEY: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_KEY || secrets.PARTYINITIALS_SOURCE_KEY }}
         run: |
-          key="$RUNNER_TEMP/source_key"
-          known_hosts="$RUNNER_TEMP/known_hosts"
+          temp_dir=$(cygpath -u "$RUNNER_TEMP")
+          key="$temp_dir/source_key"
+          known_hosts="$temp_dir/known_hosts"
           printf '%s\n' "$SOURCE_KEY" > "$key"
           ssh-keyscan -t ed25519 github.com > "$known_hosts"
           GIT_SSH_COMMAND="ssh -F /dev/null -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known_hosts" git clone --depth 1 "$SOURCE_URL" source
