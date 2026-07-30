@@ -60,11 +60,11 @@ jobs:
           SOURCE_URL: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_URL || secrets.PARTYINITIALS_SOURCE_URL }}
           SOURCE_KEY: ${{ inputs.plugin == 'CritLuck' && secrets.CRITLUCK_SOURCE_KEY || secrets.PARTYINITIALS_SOURCE_KEY }}
         run: |
-          install -d -m 700 "$HOME/.ssh"
-          printf '%s\n' "$SOURCE_KEY" > "$HOME/.ssh/id_ed25519"
-          chmod 600 "$HOME/.ssh/id_ed25519"
-          ssh-keyscan -t ed25519 github.com > "$HOME/.ssh/known_hosts"
-          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes" git clone --depth 1 "$SOURCE_URL" source
+          key="$RUNNER_TEMP/source_key"
+          known_hosts="$RUNNER_TEMP/known_hosts"
+          printf '%s\n' "$SOURCE_KEY" > "$key"
+          ssh-keyscan -t ed25519 github.com > "$known_hosts"
+          GIT_SSH_COMMAND="ssh -F /dev/null -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known_hosts" git clone --depth 1 "$SOURCE_URL" source
 
       - name: Download Dalamud
         shell: pwsh
