@@ -6,7 +6,18 @@ Add this URL under **Custom Plugin Repositories** in `/xlsettings`:
 https://raw.githubusercontent.com/renasagi/dalamud-plugins/main/pluginmaster.json
 ```
 
-The feed currently contains CritLuck and Party Initials.
+The feed contains CritLuck, Party Initials, and Client Language Override.
+
+## Client Language Override
+
+Choose the client language shown to other players without changing your game's
+text language. Open `/clientlang` to select Japanese, English, German, or French.
+
+Enable **Get plugin testing builds** in Dalamud settings, then install
+**Client Language Override** from `/xlplugins`.
+
+Requires FFXIV Windows build `2026.10.06.0000.0000` and Dalamud API 15.
+If Search Info still shows the previous language, restart the game.
 
 ## Party Initials (deprecated)
 
