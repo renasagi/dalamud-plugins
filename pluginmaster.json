@@ -22,10 +22,10 @@
   {
     "Author": "renasagi",
     "Name": "Party Initials",
-    "Punchline": "Change party-list and chat name formats with /pli.",
-    "Description": "Changes the party-list and chat name formats together. Use /pli for initials, /pli full for full names, or /pli help for every option.",
+    "Punchline": "Deprecated. Use Vanilla+'s Game Config Command instead.",
+    "Description": "Party Initials is deprecated and remains available to download. Use Vanilla+'s Game Config Command feature by Ren (renasagi) instead. Enable the feature in Vanilla+ settings, then run these commands outside combat for initials:\n/gameconfig control PartyListNameType 3\n/gameconfig ui LogNameType 3\nUse 0 for full names, 1 for Forename S., 2 for F. Surname, or 3 for F. S. Use the same value in both commands. Existing /pli and /partyinitials commands still work.",
     "InternalName": "PartyInitials",
-    "AssemblyVersion": "1.1.0.0",
+    "AssemblyVersion": "1.1.1.0",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "RepoUrl": "https://github.com/renasagi/dalamud-plugins",
@@ -33,13 +33,14 @@
       "utility",
       "party",
       "chat",
-      "commands"
+      "commands",
+      "deprecated"
     ],
     "IsHide": false,
     "IsTestingExclusive": false,
-    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.0/PartyInitials.zip",
-    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.0/PartyInitials.zip",
-    "LastUpdate": 1785379243,
-    "Changelog": "Adds party-list and chat name formatting commands."
+    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
+    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
+    "LastUpdate": 1792450609,
+    "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands."
   }
 ]
