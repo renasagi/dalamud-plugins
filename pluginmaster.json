@@ -16,11 +16,7 @@
     "IsTestingExclusive": false,
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
-    "TestingAssemblyVersion": "2.0.0.0",
-    "TestingDalamudApiLevel": 15,
-    "DownloadLinkTesting": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v2.0.0-testing.1/CritLuck.zip",
-    "TestingChangelog": "ACT overhaul. Run ACT with the FFXIV plugin and OverlayPlugin; start WSServer on 127.0.0.1:10501 with SSL off. Open /critluck, match the port, enable ordinary level-100 PvE scoring, and connect before pulling. Buff-aware direct-hit scores cover WAR, WHM, SAM, DNC, and PCT. Unsupported actions, pets, DoTs, missing stats/status context, and ambiguous buff boundaries are excluded. Stable 1.0 is unchanged. See the testing release notes for setup and known limits.",
-    "LastUpdate": 1792457120,
+    "LastUpdate": 1785379243,
     "Changelog": "Initial 1.0 release."
   },
   {

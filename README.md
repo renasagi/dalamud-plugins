@@ -8,44 +8,13 @@ https://raw.githubusercontent.com/renasagi/dalamud-plugins/main/pluginmaster.jso
 
 The feed contains CritLuck, Party Initials, and Client Language Override.
 
-## CritLuck (ACT testing build)
+## CritLuck
 
-Version **2.0.0.0** uses regular ACT through OverlayPlugin. Stable **1.0.0.0**
-is unchanged and does not contain this ACT overhaul.
+The ACT testing build has been withdrawn because it does not support all jobs.
+Stable **1.0.0.0** remains available and does not include the ACT overhaul.
 
-1. Add the repository above. In `/xlsettings`, open **Experimental**, enable
-   **Get plugin testing builds**, and save.
-2. In `/xlplugins`, find **CritLuck**, use its context menu to select the testing
-   version, and install or update. Confirm version **2.0.0.0**. Dalamud staging
-   is not required.
-3. Run ACT with the FFXIV parsing plugin and OverlayPlugin on the same Windows
-   PC as the game. Confirm that ACT itself sees combat data.
-4. Start OverlayPlugin's **WSServer** on `127.0.0.1`, port `10501`, with SSL off.
-   Keep it on loopback; no public listener or router port forwarding is needed.
-5. Outside combat, open `/critluck`, expand **ACT connection and scoring**, match
-   the port, and click **Apply**. Wait for **ACT: connected**.
-6. Enable **Score ordinary level-100 PvE**, give party inspections time to finish,
-   and start a new fight. Scoring is off by default.
-
-CritLuck uses `ws://127.0.0.1:10501/ws`, not `/MiniParse`. No IINACT or FFLogs
-account is needed. Do not import logs while collecting a live encounter.
-
-Direct-action rules cover **WAR, WHM, SAM, DNC, and PCT at effective level 100**.
-Other actions, pets, DoTs, missing stats/status context, and ambiguous buff
-boundaries are excluded. Leave scoring off in PvP or special content with
-additional stat/rate modifiers. Requires Dalamud API 15.
-
-Around 50 is typical; higher is luckier and lower is less lucky. Scores are not
-DPS or damage-weighted rankings. Hover a player or score for details. A dash
-means no usable score, not zero luck. Reconnect outside combat if the window
-reports a clock, malformed-event, or ordering problem, then start a new fight.
-
-Local automated checks pass; actual ACT/FFXIV compatibility, inspection timing,
-and the in-game UI still need validation. To return to stable, leave CritLuck's
-testing channel and reinstall stable if needed. Redact names/worlds in reports
-and do not post raw ACT logs publicly.
-
-See the [testing release and full instructions](https://github.com/renasagi/dalamud-plugins/releases/tag/critluck-v2.0.0-testing.1).
+If you installed **2.0.0.0**, leave CritLuck's testing channel and reinstall
+stable from `/xlplugins`.
 
 ## Client Language Override
 
