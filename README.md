@@ -8,10 +8,8 @@ https://raw.githubusercontent.com/renasagi/dalamud-plugins/main/pluginmaster.jso
 
 The feed contains CritLuck, Party Initials, and Client Language Override.
 
-Download counts come from the ZIP assets on currently published GitHub
-releases. They include repeat downloads and updates, not unique users.
-Counts refresh every six hours and when releases change. No plugin telemetry
-is collected for these counts.
+Download counts use GitHub release totals and refresh every six hours.
+Repeat downloads and updates count too.
 
 ## CritLuck
 

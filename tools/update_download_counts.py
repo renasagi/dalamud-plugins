@@ -16,6 +16,7 @@ SOURCES = {
     "CritLuck": ("critluck-v", "CritLuck.zip"),
     "PartyInitials": ("partyinitials-v", "PartyInitials.zip"),
     "ClientLanguageOverride": ("clientlanguageoverride-v", "ClientLanguageOverride.zip"),
+    "InfoBar": ("infobar-v", "InfoBar.zip"),
 }
 MAX_COUNT = (1 << 63) - 1
 

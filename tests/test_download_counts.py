@@ -30,10 +30,24 @@ class DownloadCountsTests(unittest.TestCase):
             release("partyinitials-v1.1.1", [asset(3, "PartyInitials.zip", 9)]),
             release("clientlanguageoverride-v0.2.0", [asset(4, "ClientLanguageOverride.zip", 7)], prerelease=True),
             release("clientlanguageoverride-v0.2.1", [asset(5, "ClientLanguageOverride.zip", 4)], prerelease=True),
+            release("infobar-v0.1.0", [asset(6, "InfoBar.zip", 3)]),
         ]
         self.assertEqual(counts.count_downloads(releases), {
-            "CritLuck": 19, "PartyInitials": 27, "ClientLanguageOverride": 11,
+            "CritLuck": 19, "PartyInitials": 27, "ClientLanguageOverride": 11, "InfoBar": 3,
         })
+
+    def test_every_feed_plugin_has_a_matching_download_source(self):
+        feed = json.loads(Path("pluginmaster.json").read_text(encoding="utf-8"))
+        for plugin in feed:
+            with self.subTest(plugin=plugin["InternalName"]):
+                self.assertIn(plugin["InternalName"], counts.SOURCES)
+                prefix, filename = counts.SOURCES[plugin["InternalName"]]
+                for key in ("DownloadLinkInstall", "DownloadLinkUpdate", "DownloadLinkTesting"):
+                    if key == "DownloadLinkTesting" and key not in plugin:
+                        continue
+                    self.assertTrue(plugin[key].startswith(
+                        f"https://github.com/renasagi/dalamud-plugins/releases/download/{prefix}"))
+                    self.assertTrue(plugin[key].endswith("/" + filename))
 
     def test_ignores_drafts_unrelated_tags_and_non_plugin_assets(self):
         releases = [
