@@ -6,10 +6,19 @@ Add this URL under **Custom Plugin Repositories** in `/xlsettings`:
 https://raw.githubusercontent.com/renasagi/dalamud-plugins/main/pluginmaster.json
 ```
 
-The feed contains CritLuck, Party Initials, and Client Language Override.
+The feed contains CritLuck, Party Initials, Client Language Override, and InfoBar.
 
 Download counts use GitHub release totals and refresh every six hours.
 Repeat downloads and updates count too.
+
+## InfoBar
+
+Hide selected Server Info Bar entries while their plugins keep running.
+Open `/infobar` to select entries, then use `/infobar toggle` to hide or restore
+the group. `/infobar list` shows the detected names and aliases.
+
+Install **InfoBar** from `/xlplugins`. Requires Dalamud API 15.
+Close Dalamud Settings before changing visibility or unloading InfoBar.
 
 ## CritLuck
 

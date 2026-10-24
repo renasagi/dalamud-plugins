@@ -71,5 +71,30 @@
     "LastUpdate": 1792535058,
     "TestingChangelog": "Updated for FFXIV build 2026.10.16.0000.0000. On unsupported game versions, the plugin opens an update warning and leaves language override inactive. Saved settings are kept. Requires Dalamud API 15. This update has not yet been checked in game.",
     "DownloadCount": 11
+  },
+  {
+    "Author": "renasagi",
+    "Name": "InfoBar",
+    "InternalName": "InfoBar",
+    "AssemblyVersion": "0.1.0.0",
+    "Description": "Choose entries with /infobar, then use /infobar toggle to hide or restore them together. Plugins keep running. Entry names and aliases are detected automatically.",
+    "Punchline": "Hide selected Server Info Bar entries with one command.",
+    "RepoUrl": "https://github.com/renasagi/dalamud-plugins",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "LoadRequiredState": 0,
+    "LoadSync": false,
+    "CanUnloadAsync": false,
+    "Tags": [
+      "ui",
+      "utility"
+    ],
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/infobar-v0.1.0/InfoBar.zip",
+    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/infobar-v0.1.0/InfoBar.zip",
+    "LastUpdate": 1792878813,
+    "Changelog": "Hide and restore selected Server Info Bar entries with /infobar. Entry names and aliases are detected automatically.",
+    "DownloadCount": 0
   }
 ]
