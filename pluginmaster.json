@@ -17,7 +17,8 @@
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
     "LastUpdate": 1785379243,
-    "Changelog": "Initial 1.0 release."
+    "Changelog": "Initial 1.0 release.",
+    "DownloadCount": 19
   },
   {
     "Author": "renasagi",
@@ -41,7 +42,8 @@
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "LastUpdate": 1792450609,
-    "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands."
+    "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands.",
+    "DownloadCount": 27
   },
   {
     "Author": "renasagi",
@@ -58,13 +60,16 @@
     "LoadRequiredState": 1,
     "LoadSync": false,
     "CanUnloadAsync": true,
-    "Tags": ["language"],
+    "Tags": [
+      "language"
+    ],
     "IsHide": false,
     "IsTestingExclusive": true,
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.1/ClientLanguageOverride.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.1/ClientLanguageOverride.zip",
     "DownloadLinkTesting": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.1/ClientLanguageOverride.zip",
     "LastUpdate": 1792535058,
-    "TestingChangelog": "Updated for FFXIV build 2026.10.16.0000.0000. On unsupported game versions, the plugin opens an update warning and leaves language override inactive. Saved settings are kept. Requires Dalamud API 15. This update has not yet been checked in game."
+    "TestingChangelog": "Updated for FFXIV build 2026.10.16.0000.0000. On unsupported game versions, the plugin opens an update warning and leaves language override inactive. Saved settings are kept. Requires Dalamud API 15. This update has not yet been checked in game.",
+    "DownloadCount": 11
   }
 ]
