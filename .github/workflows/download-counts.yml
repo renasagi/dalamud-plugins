@@ -1,0 +1,59 @@
+name: Refresh download counts
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  release:
+    types: [published, edited, deleted, unpublished]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: download-counts-main
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'renasagi/dalamud-plugins'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout feed
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+
+      - name: Check updater
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Read GitHub download totals
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/update_download_counts.py --repo "$GITHUB_REPOSITORY"
+
+      - name: Publish changed counts
+        env:
+          TZ: Asia/Tokyo
+        run: |
+          if git diff --quiet -- pluginmaster.json; then
+            exit 0
+          fi
+          git config user.name renasagi
+          git config user.email 305112080+renasagi@users.noreply.github.com
+          git config commit.gpgsign false
+          python3 - <<'PY'
+          import re
+          import subprocess
+          expected = r"renasagi <305112080\+renasagi@users\.noreply\.github\.com> [0-9]+ \+0900"
+          for kind in ("AUTHOR", "COMMITTER"):
+              identity = subprocess.check_output(["git", "var", f"GIT_{kind}_IDENT"], text=True).strip()
+              if not re.fullmatch(expected, identity):
+                  raise SystemExit("Unexpected commit identity or timezone; refusing to publish.")
+              print(identity)
+          PY
+          git add -- pluginmaster.json
+          git diff --cached --check
+          git commit -m "Refresh plugin download counts"
+          git push origin HEAD:main
