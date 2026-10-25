@@ -18,7 +18,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
     "LastUpdate": 1785379243,
     "Changelog": "Initial 1.0 release.",
-    "DownloadCount": 19
+    "DownloadCount": 20
   },
   {
     "Author": "renasagi",
@@ -43,7 +43,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "LastUpdate": 1792450609,
     "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands.",
-    "DownloadCount": 27
+    "DownloadCount": 28
   },
   {
     "Author": "renasagi",
@@ -70,7 +70,7 @@
     "DownloadLinkTesting": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.1/ClientLanguageOverride.zip",
     "LastUpdate": 1792535058,
     "TestingChangelog": "Updated for FFXIV build 2026.10.16.0000.0000. On unsupported game versions, the plugin opens an update warning and leaves language override inactive. Saved settings are kept. Requires Dalamud API 15. This update has not yet been checked in game.",
-    "DownloadCount": 11
+    "DownloadCount": 12
   },
   {
     "Author": "renasagi",
@@ -95,6 +95,6 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/infobar-v0.1.0/InfoBar.zip",
     "LastUpdate": 1792878813,
     "Changelog": "Hide and restore selected Server Info Bar entries with /infobar. Entry names and aliases are detected automatically.",
-    "DownloadCount": 0
+    "DownloadCount": 4
   }
 ]
