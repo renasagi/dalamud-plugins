@@ -43,7 +43,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "LastUpdate": 1792450609,
     "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands.",
-    "DownloadCount": 28
+    "DownloadCount": 29
   },
   {
     "Author": "renasagi",
