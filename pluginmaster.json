@@ -43,7 +43,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "LastUpdate": 1792450609,
     "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands.",
-    "DownloadCount": 30
+    "DownloadCount": 31
   },
   {
     "Author": "renasagi",
@@ -66,7 +66,7 @@
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2/ClientLanguageOverride.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2/ClientLanguageOverride.zip",
     "LastUpdate": 1794353258,
-    "DownloadCount": 13,
+    "DownloadCount": 15,
     "Changelog": "Updated for FFXIV 7.58 (build 2026.11.03.0000.0000). Requires Dalamud API 15. Unsupported game builds remain inactive."
   },
   {
