@@ -49,7 +49,7 @@
     "Author": "renasagi",
     "Name": "Client Language Override",
     "InternalName": "ClientLanguageOverride",
-    "AssemblyVersion": "0.2.2.0",
+    "AssemblyVersion": "0.2.2.1",
     "Description": "Change the client language shown to other players without changing the game's text language. Use /clientlang to choose a language or turn the override off.",
     "Punchline": "Choose your reported client language.",
     "RepoUrl": "https://github.com/renasagi/dalamud-plugins",
@@ -63,11 +63,11 @@
     ],
     "IsHide": false,
     "IsTestingExclusive": false,
-    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2/ClientLanguageOverride.zip",
-    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2/ClientLanguageOverride.zip",
-    "LastUpdate": 1794353258,
+    "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2.1/ClientLanguageOverride.zip",
+    "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2.1/ClientLanguageOverride.zip",
+    "LastUpdate": 1794354012,
     "DownloadCount": 15,
-    "Changelog": "Updated for FFXIV 7.58 (build 2026.11.03.0000.0000). Requires Dalamud API 15. Unsupported game builds remain inactive."
+    "Changelog": "New settings default to your game's client language. Existing saved language choices are kept."
   },
   {
     "Author": "renasagi",

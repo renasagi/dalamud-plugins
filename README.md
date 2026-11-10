@@ -32,6 +32,7 @@ stable from `/xlplugins`.
 
 Choose the client language shown to other players without changing your game's
 text language. Open `/clientlang` to select Japanese, English, German, or French.
+New settings start with your game's client language. Existing saved choices are kept.
 
 Install or update **Client Language Override** from `/xlplugins`.
 
