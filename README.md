@@ -33,10 +33,9 @@ stable from `/xlplugins`.
 Choose the client language shown to other players without changing your game's
 text language. Open `/clientlang` to select Japanese, English, German, or French.
 
-Enable **Get plugin testing builds** in Dalamud settings, then install
-**Client Language Override** from `/xlplugins`.
+Install or update **Client Language Override** from `/xlplugins`.
 
-Language override supports FFXIV Windows build `2026.10.16.0000.0000` and
+Language override supports FFXIV Windows build `2026.11.03.0000.0000` and
 requires Dalamud API 15. On other game builds, the plugin opens an update
 warning and leaves language override inactive. Saved settings are kept.
 If Search Info still shows the previous language, restart the game.
