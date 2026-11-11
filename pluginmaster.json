@@ -18,7 +18,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/critluck-v1.0.0/CritLuck.zip",
     "LastUpdate": 1785379243,
     "Changelog": "Initial 1.0 release.",
-    "DownloadCount": 22
+    "DownloadCount": 23
   },
   {
     "Author": "renasagi",
@@ -43,7 +43,7 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/partyinitials-v1.1.1/PartyInitials.zip",
     "LastUpdate": 1792450609,
     "Changelog": "Deprecated: use Vanilla+'s Game Config Command feature by Ren (renasagi). Party Initials remains available to download and its existing commands still work. See the plugin description for replacement commands.",
-    "DownloadCount": 31
+    "DownloadCount": 33
   },
   {
     "Author": "renasagi",
@@ -66,7 +66,7 @@
     "DownloadLinkInstall": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2.1/ClientLanguageOverride.zip",
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/clientlanguageoverride-v0.2.2.1/ClientLanguageOverride.zip",
     "LastUpdate": 1794354012,
-    "DownloadCount": 15,
+    "DownloadCount": 22,
     "Changelog": "New settings default to your game's client language. Existing saved language choices are kept."
   },
   {
@@ -92,6 +92,6 @@
     "DownloadLinkUpdate": "https://github.com/renasagi/dalamud-plugins/releases/download/infobar-v0.1.0/InfoBar.zip",
     "LastUpdate": 1792878813,
     "Changelog": "Hide and restore selected Server Info Bar entries with /infobar. Entry names and aliases are detected automatically.",
-    "DownloadCount": 5
+    "DownloadCount": 6
   }
 ]
